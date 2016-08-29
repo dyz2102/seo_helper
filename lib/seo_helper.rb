@@ -8,14 +8,13 @@ module SeoHelper
 
   module Rails
     case ::Rails.version.to_s
-    when /^4/
-      require "seo_helper/engine"
+    when /^4/, /^5/
+      require 'seo_helper/engine'
     when /^3\.[12]/
-      require "seo_helper/engine3"
+      require 'seo_helper/engine3'
     when /^3\.[0]/
-      require "seo_helper/railtie"
+      require 'seo_helper/railtie'
     end
-
   end
 
   def self.configure
